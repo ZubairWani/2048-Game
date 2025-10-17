@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Clear+Sans:wght@400;700&display=swap');
+
+/* --- CSS Variables for the entire color scheme --- */
+:root {
+  --color-bg-page: #faf8ef;
+  --color-bg-grid: #bbada0;
+  --color-bg-tile-empty: rgba(238, 228, 218, 0.35);
+
+  --color-text-dark: #776e65;
+  --color-text-light: #f9f6f2;
+
+  --color-tile-2: #eee4da;
+  --color-tile-4: #ede0c8;
+  --color-tile-8: #f2b179;
+  --color-tile-16: #f59563;
+  --color-tile-32: #f67c5f;
+  --color-tile-64: #f65e3b;
+  --color-tile-128: #edcf72;
+  --color-tile-256: #edcc61;
+  --color-tile-512: #edc850;
+  --color-tile-1024: #edc53f;
+  --color-tile-2048: #edc22e;
+  --color-tile-super: #3c3a32;
+
+  --font-main: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
+  --board-size: min(90vw, 500px);
+  --tile-gap: 15px;
+  --border-radius: 6px;
+  
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Basic CSS Reset --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Global Styles --- */
+body {
+  font-family: var(--font-main);
+  background: linear-gradient(135deg, #faf8ef 0%, #f5f0e8 100%);
+  color: var(--color-text-dark);
+  padding: 20px;
+  min-height: 100vh;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 95vh;
+}
+
+button {
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  outline: none;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* --- Main App Layout Containers --- */
+.game-container {
+  width: var(--board-size);
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.board-container {
+  position: relative;
+  width: var(--board-size);
+  height: var(--board-size);
+  margin-top: 20px;
+  background-color: var(--color-bg-grid);
+  border-radius: var(--border-radius);
+  padding: var(--tile-gap);
+  box-shadow: var(--shadow-lg);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 600px) {
+  :root {
+    --board-size: min(95vw, 400px);
+    --tile-gap: 10px;
+  }
+  
+  body {
+    padding: 10px;
+  }
+  
+  .board-container {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  :root {
+    --board-size: 90vw;
+    --tile-gap: 8px;
+  }
+}

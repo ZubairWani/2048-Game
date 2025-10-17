@@ -1,0 +1,22 @@
+.gui-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-right: 20px;
+}
+.gui-controls button {
+  width: 50px;
+  height: 50px;
+  background-color: #bbada0;
+  border: none;
+  border-radius: 4px;
+  color: #f9f6f2;
+  font-size: 2em;
+  font-weight: bold;
+  cursor: pointer;
+}
+.gui-controls div {
+  display: flex;
+  gap: 5px;
+}
